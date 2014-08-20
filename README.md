@@ -32,3 +32,22 @@
  - 3b. **To find plugindir:**
  - mysql> SHOW VARIABLES LIKE 'plugin%';
  - output: location of plugin_dir(example: /usr/lib64/mysql/plugin)
+
+4. Append configuration options for handlersocket to my.cnf
+ ```
+  [mysqld]
+  loose_handlersocket_port = 9998
+    # the port number to bind to (for read requests)
+  loose_handlersocket_port_wr = 9999
+    # the port number to bind to (for write requests)
+  loose_handlersocket_threads = 16
+    # the number of worker threads (for read requests)
+  loose_handlersocket_threads_wr = 1
+    # the number of worker threads (for write requests)
+  open_files_limit = 65535
+    # to allow handlersocket accept many concurrent
+    # connections, make open_files_limit as large as
+    # possible.
+  ```
+
+
