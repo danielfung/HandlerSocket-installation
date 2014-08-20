@@ -20,7 +20,7 @@
     example: http://mysql.mirror.iweb.ca/MySQL-5.6/mysql-5.6.20.tar.gz
  ```
 
-2. Download HandlerSocket-Plugin-for-MySQL
+2. Clone HandlerSocket-Plugin-for-MySQL
  ```
    $git clone https://github.com/DeNA/HandlerSocket-Plugin-for-MySQL
   ```
