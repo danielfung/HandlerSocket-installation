@@ -61,7 +61,8 @@
     # connections, make open_files_limit as large as
     # possible.
   ```
-5. Install HandlerSocket-Plugin-for-MySQL
+5. Install HandlerSocket-Plugin-for-MySQL in mysql
+ - **NOTE**: Log into mysql as root and execute following query.
  ```
     mysql> install plugin handlersocket soname 'handlersocket.so';
  ```
