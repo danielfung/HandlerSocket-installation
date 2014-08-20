@@ -7,8 +7,8 @@
  - 1b. Find the version of MySQL installed on your system:
  ```
     mysql> SHOW VARIABLES LIKE "%version%";
+    output(example): mysql Ver 14.14 Distrub 5.6.20, for Linux (x86_64)
  ```
- - output(example): mysql Ver 14.14 Distrub 5.6.20, for Linux (x86_64)
  - 1c. Download MySQL Source Code:
  - **NOTE**: Please replace **version** with the version of your MySQL installed. (ex:5.6)
  - Download the MySQL Source Code at this [link](http://mysql.mirror.iweb.ca).
@@ -60,5 +60,13 @@
     # connections, make open_files_limit as large as
     # possible.
   ```
+5. Install HandlerSocket-Plugin-for-MySQL
+ ```
+    mysql> install plugin handlersocket soname 'handlersocket.so';
+ ```
 
+6. Check if handlersocket.so is installed properly.
+ ```
+    mysql> show processlist;
+ ```
 
