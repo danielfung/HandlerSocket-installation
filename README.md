@@ -23,7 +23,6 @@
  - $ ./configure --with-mysql-source=/sourceLocation --with-mysql-bindir=/binLocation --with-mysql-plugindir=/pluginLocation
  - $ sudo make
  - $ sudo make install
- -----------------------------------------------------------------------------
  - --with-mysql-source: replace **sourceLocation** with the MySQL source code directory(example: usr/local/src/mysql/mysql-5.6.20).
  - --with-mysql-bindir: replace **binLocation** with the location of binary executables(example: mysql_config, **refer to 3a.**).
  - --with-mysql-plugindir: replace **pluginLocation** with the location of plugin libraries(example: *.so, **refer to 3b.**).
