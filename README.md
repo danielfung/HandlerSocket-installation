@@ -19,18 +19,24 @@
  - $git clone https://github.com/DeNA/HandlerSocket-Plugin-for-MySQL
 
 3. Build HandlerSocket-Plugin-for-MySQL
- - $ ./autogen.sh
- - $ ./configure --with-mysql-source=/sourceLocation --with-mysql-bindir=/binLocation --with-mysql-plugindir=/pluginLocation
- - $ sudo make
- - $ sudo make install
+  ```
+   $ ./autogen.sh
+   $ ./configure --with-mysql-source=/sourceLocation --with-mysql-bindir=/binLocation --with-mysql-plugindir=/pluginLocation
+   $ sudo make
+   $ sudo make install
+   ```
  - --with-mysql-source: replace **sourceLocation** with the MySQL source code directory(example: usr/local/src/mysql/mysql-5.6.20).
  - --with-mysql-bindir: replace **binLocation** with the location of binary executables(example: mysql_config, **refer to 3a.**).
  - --with-mysql-plugindir: replace **pluginLocation** with the location of plugin libraries(example: *.so, **refer to 3b.**).
  - 3a.**To find bindir location:** 
- - $ whereis mysql_config
+ ``` 
+   $ whereis mysql_config
+ ```
  - output: location of mysql_config(example: /usr/bin/mysql_config)
  - 3b. **To find plugindir:**
- - mysql> SHOW VARIABLES LIKE 'plugin%';
+ ```
+   mysql> SHOW VARIABLES LIKE 'plugin%';
+ ```
  - output: location of plugin_dir(example: /usr/lib64/mysql/plugin)
 
 4. Append configuration options for handlersocket to my.cnf
