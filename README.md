@@ -15,7 +15,10 @@
  - Click on the version of MySQL you have on your system(MySQL-version/).
  - **NOTE**: Please replace **full-version** with the full-version of your MySQL installed. (ex:5.6.20)
  - Scroll down the list and find the source code for your system(mysql-full-version.tar.gz).
- - $wget http://mysql.mirror.iweb.ca/version/full-version
+ ```
+    $wget http://mysql.mirror.iweb.ca/version/full-version
+    example: http://mysql.mirror.iweb.ca/MySQL-5.6/mysql-5.6.20.tar.gz
+ ```
 
 2. Download HandlerSocket-Plugin-for-MySQL
  ```
@@ -34,13 +37,11 @@
  - 3a.**To find bindir location:** 
  ``` 
    $ whereis mysql_config
-
    output: location of mysql_config(example: /usr/bin/mysql_config)
  ```
  - 3b. **To find plugindir:**
  ```
    mysql> SHOW VARIABLES LIKE 'plugin%';
-
    output: location of plugin_dir(example: /usr/lib64/mysql/plugin)
  ```
 
