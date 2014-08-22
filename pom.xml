@@ -4,7 +4,8 @@
   <artifactId>handlersocket-installation</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
-    <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>src\main\java</sourceDirectory>
+    <testSourceDirectory>src\test\java</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -16,4 +17,11 @@
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.googlecode.hs4j</groupId>
+  		<artifactId>hs4j</artifactId>
+  		<version>0.1</version>
+  	</dependency>
+  </dependencies>
 </project>
