@@ -24,7 +24,6 @@ public class handlerSocketMain {
 		IndexSession readIndexSession = hsclient.openIndexSession(db, table, "Primary", columns);
 		IndexSession deleteIndexSession = hsclient.openIndexSession(db, table, "Primary", columns);
 		IndexSession updateIndexSession = hsclient.openIndexSession(db, table, "Primary", columns);
-		
 		hsclient.shutdown();
 	}
 	
