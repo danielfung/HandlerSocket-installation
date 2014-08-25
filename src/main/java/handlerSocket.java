@@ -70,7 +70,7 @@ public class handlerSocket {
 	}
 	
 	/*
-	 * Finding data in mysql 
+	 * Finding data in mysql and place into hashmap
 	 * 
 	 * @param session represents an open index.
 	 * @param fields column names in the table.
@@ -79,7 +79,6 @@ public class handlerSocket {
 	 * @throws TimeoutException
 	 * @throws HandlerSocketException
 	 */
-	//find and place into hashmap
 	public void findData(IndexSession session, String[] fields, String[] keys) throws SQLException, InterruptedException, TimeoutException, HandlerSocketException{	
 		for(int i = 0; i<keys.length; i++){//list of items to find
 			String key = keys[i];

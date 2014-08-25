@@ -51,19 +51,20 @@ public class handlerSocketTest {
 	}
 	
 	@Test
-	public void testInsertFind() throws IOException, InterruptedException, TimeoutException, HandlerSocketException, SQLException {
+	public void testInsertFindDelete() throws IOException, InterruptedException, TimeoutException, HandlerSocketException, SQLException {
 		HSClient hsclient = new HSClientImpl(new InetSocketAddress(9999),100);
 		handlerSocket hs = new handlerSocket();
 		
 		String db = "test";//database
 		String table = "test_user";//table
 		String[] columns = {"user_name", "user_email", "user_id", "created"};//columns
-		String[] test_values = {"john_doe", "john_doe@test.com", "1234567", "created"};//values to insert
+		String[] test_valueInsert = {"john_doe", "john_doe@test.com", "1234567", "created"};//values to insert
 		String[] find_values = {"john_doe"};//values to find
 		String[] find_unexist_values = {"amy"};//value(does not exist) to find
-		String[] test_valueDelete = {"john_doe"};
+		String[] test_valueDelete = {"john_doe"};//value to delete from mysql
+		
  		IndexSession indexSession = hsclient.openIndexSession(db, table, "Primary", columns);
-		hs.insertData(indexSession, test_values);//insert
+		hs.insertData(indexSession, test_valueInsert);//insert
 		
 		//value exists in mysql database
 		ResultSet rs = indexSession.find(find_values);
