@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
 import com.google.code.hs4j.FindOperator;
+import com.google.code.hs4j.HSClient;
 import com.google.code.hs4j.IndexSession;
 import com.google.code.hs4j.exception.HandlerSocketException;
 
@@ -72,18 +73,19 @@ public class handlerSocket {
 	/*
 	 * Finding data in mysql and place into hashmap
 	 * 
-	 * @param session represents an open index.
+	 * @param hsclient
+	 * @param indexId
 	 * @param fields column names in the table.
 	 * @param keys values to be compared with index columns.
 	 * @throws InterruptedException
 	 * @throws TimeoutException
 	 * @throws HandlerSocketException
 	 */
-	public void findData(IndexSession session, String[] fields, String[] keys) throws SQLException, InterruptedException, TimeoutException, HandlerSocketException{	
+	public void findData(HSClient hsclient, int indexId, String[] fields, String[] keys) throws SQLException, InterruptedException, TimeoutException, HandlerSocketException{	
 		for(int i = 0; i<keys.length; i++){//list of items to find
 			String key = keys[i];
 			String[] test = {key};
-			ResultSet rs = session.find(test);//item to find
+			ResultSet rs = hsclient.find(indexId, test);//item to find
 			while(rs.next()){
 				for(int j = 0; j<fields.length; j++){
 					addToList(rs.getString(fields[i]));//columns to display based on item
@@ -97,34 +99,38 @@ public class handlerSocket {
 	/*
 	 * Inserting data into mysql
 	 * 
-	 * @param session represents an open index.
+	 * @param hsclient
+	 * @param indexId
 	 * @param values String array of values to be inserted into a specific table in mysql.
 	 * @throws InterruptedException
 	 * @throws TimeoutException
 	 * @throws HandlerSocketException
 	 */
-	public void insertData(IndexSession session, String[] values) throws InterruptedException, TimeoutException, HandlerSocketException{
-		session.insert(values);
+	public void insertData(HSClient hsclient, int indexId, String[] values) throws InterruptedException, TimeoutException, HandlerSocketException{
+		hsclient.insert(indexId, values);
+
 	}
 	
 	/*
 	 * Deleting data from mysql
 	 * 
-	 * @param session represents an open index.
+	 * @param hsclient
+	 * @param indexId
 	 * @param values items to be deleted.
 	 * @param operator specifies the comparison operation(EQ, GE, GT, LE, LT) to use.
 	 * @throws InterruptedException
 	 * @throws TimeoutException
 	 * @throws HandlerSocketException
 	 */
-	public void deleteData(IndexSession session, String[] values, FindOperator operator) throws InterruptedException, TimeoutException, HandlerSocketException{
-		session.delete(values, operator);
+	public void deleteData(HSClient hsclient, int indexId, String[] values, FindOperator operator) throws InterruptedException, TimeoutException, HandlerSocketException{
+		hsclient.delete(indexId, values, operator);
 	}
 	
 	/*
 	 * Updating data in mysql
 	 * 
-	 * @param session represents an open index.
+	 * @param hsclient
+	 * @param indexId
 	 * @param keys keys that will be compared with index columns.
 	 * @param values values that will be modified.
 	 * @param operator specifies the comparison operation(EQ, GE, GT, LE, LT) to use.
@@ -132,7 +138,7 @@ public class handlerSocket {
 	 * @throws TimeoutException
 	 * @throws HandlerSocketException
 	 */
-	public void updateData(IndexSession session, String[] keys, String[] values, FindOperator operator) throws InterruptedException, TimeoutException, HandlerSocketException{
-		session.update(keys, values, operator);
+	public void updateData(HSClient hsclient, int indexId, String[] keys, String[] values, FindOperator operator) throws InterruptedException, TimeoutException, HandlerSocketException{
+		hsclient.update(indexId, keys, values, operator);
 	}
 }

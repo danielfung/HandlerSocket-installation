@@ -97,6 +97,7 @@ public class handlerSocketTest {
 		HSClient hsclient = new HSClientImpl(new InetSocketAddress(9999),100);
 		handlerSocket hs = new handlerSocket();
 		
+		int indexId = 1;
 		String db = "test";//database
 		String table = "test_user";//table
 		String[] columns = {"user_name", "user_email", "user_id", "created"};//columns
@@ -106,34 +107,34 @@ public class handlerSocketTest {
 		String[] find_unexist_values = {"amy"};//value(does not exist) to find
 		String[] test_valueDelete = {"john_doe"};//value to delete from mysql
 		
- 		IndexSession indexSession = hsclient.openIndexSession(0, db, table, "Primary", columns);
+		hsclient.openIndexSession(0, db, table, "Primary", columns);
  		
  		//CRUD operations:	
  		//insert
-		hs.insertData(indexSession, test_valueInsert);		
+		hs.insertData(hsclient, indexId, test_valueInsert);		
 		//check if value exists in mysql database(read)
-		ResultSet rs = indexSession.find(find_values);
+		ResultSet rs = hsclient.find(indexId, find_values);
 		assertTrue(rs.next());
 		assertEquals("equal", "john_doe", rs.getString("user_name"));
 		assertEquals("equal", "john_doe@test.com", rs.getString("user_email"));
 		assertEquals("equal", 1234567, rs.getInt("user_id"));
 		
 		//update value(john_doe) with the new values in table(test)
-		hs.updateData(indexSession, find_values, test_valueUpdate, FindOperator.EQ);
+		hs.updateData(hsclient, indexId, find_values, test_valueUpdate, FindOperator.EQ);
 		
-		rs = indexSession.find(find_values);
+		rs = hsclient.find(indexId, find_values);
 		assertTrue(rs.next());
 		assertEquals("equal", "john_doe", rs.getString("user_name"));
 		assertEquals("equal", "john_doe@updateTest.com", rs.getString("user_email"));
 		assertEquals("equal", 1234567, rs.getInt("user_id"));
 		
 		//values that don't exist in mysql table(test)
-		rs = indexSession.find(find_unexist_values);
+		rs = hsclient.find(indexId, find_unexist_values);
 		assertFalse(rs.next());
 		
 		//delete the test_valueDelete from table(test)
-		hs.deleteData(indexSession, test_valueDelete, FindOperator.EQ);	
-		rs = indexSession.find(test_valueDelete);
+		hs.deleteData(hsclient, indexId, test_valueDelete, FindOperator.EQ);	
+		rs = hsclient.find(indexId, test_valueDelete);
 		assertFalse(rs.next());
 		
 		hsclient.shutdown();
