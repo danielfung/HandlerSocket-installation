@@ -92,7 +92,6 @@ public class handlerSocketTest {
 	 * @throws HandlerSocketException
 	 * @throws SQLException
 	 */
-	/*
 	@Test
 	public void testInsertFindDelete() throws IOException, InterruptedException, TimeoutException, HandlerSocketException, SQLException {
 		HSClient hsclient = new HSClientImpl(new InetSocketAddress(9999),100);
@@ -107,7 +106,7 @@ public class handlerSocketTest {
 		String[] find_unexist_values = {"amy"};//value(does not exist) to find
 		String[] test_valueDelete = {"john_doe"};//value to delete from mysql
 		
- 		IndexSession indexSession = hsclient.openIndexSession(db, table, "Primary", columns);
+ 		IndexSession indexSession = hsclient.openIndexSession(0, db, table, "Primary", columns);
  		
  		//CRUD operations:	
  		//insert
@@ -139,7 +138,5 @@ public class handlerSocketTest {
 		
 		hsclient.shutdown();
 		hs.clearHashMap();
-		
 	}
-	*/
 }
