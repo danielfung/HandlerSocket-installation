@@ -40,6 +40,11 @@ public class handlerSocket {
 	 * @param key the item that you want to look for in hashmap.
 	 * @return based on key returns data if found in hashmap.
 	 */
+	
+	
+	public int sizeHashMap(){
+		return myhashmap.size();
+	}
 
 	public List<String> findKey(String key){
 		return myhashmap.get(key);
