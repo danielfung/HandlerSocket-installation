@@ -16,13 +16,12 @@ public class handlerSocketMain {
 		//new client, 9999 is read/write, 9998 read only, 100 connection pools
 		HSClient hsclient = new HSClientImpl(new InetSocketAddress(9999),100);
 		handlerSocket hs = new handlerSocket();
-		
 		String db = "test";//database
 		String table = "test_user";//table
 		String[] columns = {"user_name", "user_email", "user_id", "created"};//columns
 		int indexId = 1;
 		
-		hsclient.openIndexSession(db, table, "Primary", columns);
+		hsclient.openIndex(indexId, db, table, "Primary", columns);
 
 		
 		String[] test_values = {"john_doe", "john_doe@test.com", "1234567", "created"};
