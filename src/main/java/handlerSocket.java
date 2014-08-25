@@ -73,13 +73,13 @@ public class handlerSocket {
 	 */
 	//find and place into hashmap
 	public void findData(IndexSession session, String[] fields, String[] keys) throws SQLException, InterruptedException, TimeoutException, HandlerSocketException{	
-		for(int i = 0; i<keys.length; i++){
+		for(int i = 0; i<keys.length; i++){//list of items to find
 			String key = keys[i];
 			String[] test = {key};
-			ResultSet rs = session.find(test);
+			ResultSet rs = session.find(test);//item to find
 			while(rs.next()){
 				for(int j = 0; j<fields.length; j++){
-					addToList(rs.getString(fields[i]));//add to arraylist
+					addToList(rs.getString(fields[i]));//columns to display based on item
 				}
 			addtoHashMap(key, data);
 			clearList();//clear list
@@ -87,9 +87,6 @@ public class handlerSocket {
 		}
 	}
 	
-	public void findDataFilter(IndexSession sesion, String[] fields, String[] keys, String[] filter){
-		
-	}
 	/*
 	 * Inserting data into mysql
 	 * 

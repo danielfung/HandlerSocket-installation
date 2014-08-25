@@ -18,12 +18,19 @@ public class handlerSocketMain {
 		handlerSocket hs = new handlerSocket();
 		
 		String db = "test";//database
-		String table = "test";//table
-		String[] columns = {"test", "test1"};//columns
+		String table = "test_user";//table
+		String[] columns = {"user_name", "user_email", "user_id", "created"};//columns
 		IndexSession writeIndexSession = hsclient.openIndexSession(db, table, "Primary", columns);
 		IndexSession readIndexSession = hsclient.openIndexSession(db, table, "Primary", columns);
 		IndexSession deleteIndexSession = hsclient.openIndexSession(db, table, "Primary", columns);
 		IndexSession updateIndexSession = hsclient.openIndexSession(db, table, "Primary", columns);
+		
+		String[] test_values = {"john_doe", "john_doe@test.com", "1234567", "created"};
+		String[] test_valueFind = {"john_doe"};
+		hs.insertData(writeIndexSession, test_values);//insert into db-test, test_user-test_user;
+		hs.findData(readIndexSession, columns, test_valueFind);
+		
+		
 		hsclient.shutdown();
 	}
 	
