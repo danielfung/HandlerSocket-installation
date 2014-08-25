@@ -107,7 +107,7 @@ public class handlerSocketTest {
 		String[] find_unexist_values = {"amy"};//value(does not exist) to find
 		String[] test_valueDelete = {"john_doe"};//value to delete from mysql
 		
-		hsclient.openIndex(indexId, db, table, "Primary", columns);
+		assertTrue(hsclient.openIndex(indexId, db, table, "Primary", columns));
  		
  		//CRUD operations:	
  		//insert
