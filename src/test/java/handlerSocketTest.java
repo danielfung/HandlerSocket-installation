@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.google.code.hs4j.FindOperator;
 import com.google.code.hs4j.HSClient;
 import com.google.code.hs4j.IndexSession;
 import com.google.code.hs4j.exception.HandlerSocketException;
@@ -58,9 +59,9 @@ public class handlerSocketTest {
 		String table = "test_user";//table
 		String[] columns = {"user_name", "user_email", "user_id", "created"};//columns
 		String[] test_values = {"john_doe", "john_doe@test.com", "1234567", "created"};//values to insert
-		String[] find_values = {"john_doe"};
-		String[] find_unexist_values = {"amy"};
-		
+		String[] find_values = {"john_doe"};//values to find
+		String[] find_unexist_values = {"amy"};//value(does not exist) to find
+		String[] test_valueDelete = {"john_doe"};
  		IndexSession indexSession = hsclient.openIndexSession(db, table, "Primary", columns);
 		hs.insertData(indexSession, test_values);//insert
 		
@@ -73,6 +74,11 @@ public class handlerSocketTest {
 		
 		//values that don't exist in mysql database
 		rs = indexSession.find(find_unexist_values);
+		assertFalse(rs.next());
+		
+		//delete the test_valueDelete from table
+		hs.deleteData(indexSession, test_valueDelete, FindOperator.EQ);	
+		rs = indexSession.find(test_valueDelete);
 		assertFalse(rs.next());
 		
 		hsclient.shutdown();

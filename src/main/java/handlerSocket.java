@@ -35,17 +35,20 @@ public class handlerSocket {
 	}
 	
 	/*
+	 * Returns size of current hashmap(myhashmap).
+	 * 
+	 * @return return myhashmap current size.
+	 */
+	public int sizeHashMap(){
+		return myhashmap.size();
+	}
+	
+	/*
 	 * Look in hashmap(myhashmap) for specific data
 	 * 
 	 * @param key the item that you want to look for in hashmap.
 	 * @return based on key returns data if found in hashmap.
 	 */
-	
-	
-	public int sizeHashMap(){
-		return myhashmap.size();
-	}
-
 	public List<String> findKey(String key){
 		return myhashmap.get(key);
 	}
