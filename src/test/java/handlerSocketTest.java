@@ -92,6 +92,7 @@ public class handlerSocketTest {
 	 * @throws HandlerSocketException
 	 * @throws SQLException
 	 */
+	/*
 	@Test
 	public void testInsertFindDelete() throws IOException, InterruptedException, TimeoutException, HandlerSocketException, SQLException {
 		HSClient hsclient = new HSClientImpl(new InetSocketAddress(9999),100);
@@ -138,5 +139,7 @@ public class handlerSocketTest {
 		
 		hsclient.shutdown();
 		hs.clearHashMap();
+		
 	}
+	*/
 }
