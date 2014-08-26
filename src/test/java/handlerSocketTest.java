@@ -100,16 +100,16 @@ public class handlerSocketTest {
 		int indexId = 1;
 		String db = "test";//database
 		String table = "test_user";//table
-		String[] columns = { "user_name", "user_email", "user_id", "created" };//columns
-		String[] test_valueInsert = { "john_doe", "john_doe@test.com", "1234567", "yes" };//values to insert
-		String[] test_valueUpdate = { "john_doe", "john_doe@updateTest.com", "1234567", "yes" };//values to update
+		String[] columns = { "user_name", "user_email", "user_id"};//columns
+		String[] test_valueInsert = { "john_doe", "john_doe@test.com", "1234567"};//values to insert
+		String[] test_valueUpdate = { "john_doe", "john_doe@updateTest.com", "1234567"};//values to update
 		String[] find_values = {"john_doe"};//values to find
 		String[] find_unexist_values = {"amy"};//value(does not exist) to find
 		String[] test_valueDelete = {"john_doe"};//value to delete from mysql
 		
 		hsclient.openIndex(indexId, db, table, "TEST_INDEX", columns);
 		//hsclient.openIndexSession(indexId, db, table, "Primary", columns);
- 		/*
+ 		
  		//CRUD operations:	
  		//insert
 		hs.insertData(hsclient, indexId, test_valueInsert);		
@@ -140,6 +140,6 @@ public class handlerSocketTest {
 		
 		hsclient.shutdown();
 		hs.clearHashMap();
-		*/
+		
 	}
 }
