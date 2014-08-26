@@ -93,17 +93,17 @@ public class handlerSocketTest {
 	 * @throws SQLException
 	 */
 	@Test
-	public void testInsertFindDelete() throws IOException, InterruptedException, TimeoutException, HandlerSocketException, SQLException {
+	public void testInsertFindUpdateDelete() throws IOException, InterruptedException, TimeoutException, HandlerSocketException, SQLException {
 		HSClient hsclient = new HSClientImpl(new InetSocketAddress(9999),100);
 		handlerSocket hs = new handlerSocket();
 		
 		int indexId = 0;
 		String db = "test";//database
 		String table = "test_user";//table
-		String[] columns = { "user_name", "user_email", "user_id", "created" };//columns
+		String[] columns = { "user_name", "user_email", "user_id"};//columns
 		
-		String[] test_valueInsert = { "john_doe", "john_doe@test.com", "1234567", "NOW()"};//values to insert
-		String[] test_valueUpdate = { "john_doe", "john_doe@updateTest.com", "1234567", "NOW()"};//values to update
+		String[] test_valueInsert = { "john_doe", "john_doe@test.com", "1234567" };//values to insert
+		String[] test_valueUpdate = { "john_doe", "john_doe@updateTest.com", "1234567" };//values to update
 		String[] find_values = {"john_doe"};//values to find
 		String[] find_unexist_values = {"amy"};//value(does not exist) to find
 		String[] test_valueDelete = {"john_doe"};//value to delete from mysql
@@ -140,7 +140,6 @@ public class handlerSocketTest {
 		assertFalse(rs.next());
 		
 		hsclient.shutdown();
-		hs.clearHashMap();
-		
+		hs.clearHashMap();	
 	}
 }
