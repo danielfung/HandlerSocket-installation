@@ -112,7 +112,8 @@ public class handlerSocketTest {
 		
  		//CRUD operations:	
  		//insert
-		hs.insertData(hsclient, indexId, test_valueInsert);		
+		//hs.insertData(hsclient, indexId, test_valueInsert);
+		assertTrue(hsclient.insert(indexId, test_valueInsert));
 		//check if value exists in mysql database(read)
 		//ResultSet rs = hsclient.find(indexId, find_values);	
 		ResultSet rs = hsclient.find(indexId, find_values, FindOperator.EQ, 1, 0);
