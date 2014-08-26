@@ -104,9 +104,9 @@ public class handlerSocketTest {
 		
 		String[] test_valueInsert = { "john_doe", "john_doe@test.com", "1234567" };//values to insert
 		String[] test_valueUpdate = { "john_doe", "john_doe@updateTest.com", "1234567" };//values to update
-		String[] find_values = {"john_doe"};//values to find
+		String[] find_valuesPrimKey = {"1234567"};//values to find
 		String[] find_unexist_values = {"amy"};//value(does not exist) to find
-		String[] test_valueDelete = {"john_doe"};//value to delete from mysql
+		String[] test_valueDeletePrimKey = {"1234567"};//value to delete from mysql
 		
 		assertTrue(hsclient.openIndex(indexId, db, table, "PRIMARY", columns));
 		
@@ -114,17 +114,17 @@ public class handlerSocketTest {
  		//insert
 		hs.insertData(hsclient, indexId, test_valueInsert);
 		//check if value exists in mysql database(read)
-		ResultSet rs = hsclient.find(indexId, find_values);	
+		ResultSet rs = hsclient.find(indexId, find_valuesPrimKey);	
 		//ResultSet rs = hsclient.find(indexId, find_values, FindOperator.EQ, 1, 0);
 		while(rs.next()){
 			assertEquals("equal", "john_doe", rs.getString("user_name"));
 			assertEquals("equal", "john_doe@test.com", rs.getString("user_email"));
 			assertEquals("equal", 1234567, rs.getInt("user_id"));
 		}
-		//update value(john_doe) with the new values in table(test)
-		hs.updateData(hsclient, indexId, find_values, test_valueUpdate, FindOperator.EQ);
+		//update value(1234567) with the new values in table(test)
+		hs.updateData(hsclient, indexId, find_valuesPrimKey, test_valueUpdate, FindOperator.EQ);
 	
-		rs = hsclient.find(indexId, find_values);
+		rs = hsclient.find(indexId, find_valuesPrimKey);
 		while(rs.next()){
 			assertEquals("equal", "john_doe", rs.getString("user_name"));
 			assertEquals("equal", "john_doe@updateTest.com", rs.getString("user_email"));
@@ -134,9 +134,9 @@ public class handlerSocketTest {
 		rs = hsclient.find(indexId, find_unexist_values);
 		assertFalse(rs.next());
 		
-		//delete the test_valueDelete from table(test)
-		hs.deleteData(hsclient, indexId, test_valueDelete, FindOperator.EQ);	
-		rs = hsclient.find(indexId, test_valueDelete);
+		//delete the test_valueDelete(1234567) from table(test)
+		hs.deleteData(hsclient, indexId, test_valueDeletePrimKey, FindOperator.EQ);	
+		rs = hsclient.find(indexId, test_valueDeletePrimKey);
 		assertFalse(rs.next());
 		
 		hsclient.shutdown();
