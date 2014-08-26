@@ -100,7 +100,7 @@ public class handlerSocketTest {
 		int indexId = 1;
 		String db = "test";//database
 		String table = "test_user";//table
-		String[] columns = { "user_name", "user_email", "user_id"};//columns
+		String[] columns = { "user_name", "user_email", "user_id", "created" };//columns
 		String[] test_valueInsert = { "john_doe", "john_doe@test.com", "1234567"};//values to insert
 		String[] test_valueUpdate = { "john_doe", "john_doe@updateTest.com", "1234567"};//values to update
 		String[] find_values = {"john_doe"};//values to find
