@@ -48,6 +48,7 @@
 4. Append configuration options for handlersocket to my.cnf
  ```
   [mysqld]
+  plugin-load=handlersocket.so
   loose_handlersocket_port = 9998
     # the port number to bind to (for read requests)
   loose_handlersocket_port_wr = 9999
@@ -70,5 +71,14 @@
 6. Check if handlersocket.so is installed properly.
  ```
     mysql> show processlist;
+ ```
+
+7. Another method to check if handlersocket properly installed, is to check if ports 9998 and 9999 are occupied.
+ ```
+   $sudo lsof -i -P
+   *look for mysqld 
+   output: mysqld 12678 mysql 15u 122385031 0t0 TCP *:9998 (LISTEN)
+  	   mysqld 12678 mysql 15u 122385031 0t0 TCP *:9999 (LISTEN)
+
  ```
 
