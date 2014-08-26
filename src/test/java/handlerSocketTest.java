@@ -10,13 +10,10 @@ import java.util.concurrent.TimeoutException;
 
 import main.java.handlerSocket;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.google.code.hs4j.FindOperator;
 import com.google.code.hs4j.HSClient;
-import com.google.code.hs4j.IndexSession;
 import com.google.code.hs4j.exception.HandlerSocketException;
 import com.google.code.hs4j.impl.HSClientImpl;
 
@@ -84,7 +81,7 @@ public class handlerSocketTest {
 	
 	/*
 	 * CRUD Operations using handlersocket.
-	 * Insert,Delete,Update,Find data in mysql table.
+	 * Insert,Find,Update,Delete data in mysql table.
 	 * 
 	 * @throws IOException
 	 * @throws InterruptedException
