@@ -77,8 +77,8 @@
  ```
    $sudo lsof -i -P
    *look for mysqld 
-   output: mysqld 12678 mysql 15u 122385031 0t0 TCP *:9998 (LISTEN)
-  	   mysqld 12678 mysql 15u 122385031 0t0 TCP *:9999 (LISTEN)
+    output: mysqld 12678 mysql 15u 122385031 0t0 TCP *:9998 (LISTEN)
+  	    mysqld 12678 mysql 15u 122385031 0t0 TCP *:9999 (LISTEN)
 
  ```
 
