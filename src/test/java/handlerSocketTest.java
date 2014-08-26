@@ -109,7 +109,7 @@ public class handlerSocketTest {
 		
 		hsclient.openIndex(indexId, db, table, "TEST_INDEX", columns);
 		//hsclient.openIndexSession(indexId, db, table, "Primary", columns);
- 		
+ 		/*
  		//CRUD operations:	
  		//insert
 		hs.insertData(hsclient, indexId, test_valueInsert);		
@@ -140,5 +140,6 @@ public class handlerSocketTest {
 		
 		hsclient.shutdown();
 		hs.clearHashMap();
+		*/
 	}
 }
