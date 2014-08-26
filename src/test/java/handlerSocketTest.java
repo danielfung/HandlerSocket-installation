@@ -102,8 +102,8 @@ public class handlerSocketTest {
 		String table = "test_user";//table
 		String[] columns = { "user_name", "user_email", "user_id", "created" };//columns
 		
-		String[] test_valueInsert = { "john_doe", "john_doe@test.com", "1234567", "now()"};//values to insert
-		String[] test_valueUpdate = { "john_doe", "john_doe@updateTest.com", "1234567", "now()"};//values to update
+		String[] test_valueInsert = { "john_doe", "john_doe@test.com", "1234567", "NOW()"};//values to insert
+		String[] test_valueUpdate = { "john_doe", "john_doe@updateTest.com", "1234567", "NOW()"};//values to update
 		String[] find_values = {"john_doe", "john_doe@test.com"};//values to find
 		String[] find_unexist_values = {"amy"};//value(does not exist) to find
 		String[] test_valueDelete = {"john_doe"};//value to delete from mysql
@@ -116,6 +116,7 @@ public class handlerSocketTest {
 		hs.insertData(hsclient, indexId, test_valueInsert);		
 		//check if value exists in mysql database(read)
 		ResultSet rs = hsclient.find(indexId, find_values);
+		
 		assertTrue(rs.next());
 		assertEquals("equal", "john_doe", rs.getString("user_name"));
 		assertEquals("equal", "john_doe@test.com", rs.getString("user_email"));
