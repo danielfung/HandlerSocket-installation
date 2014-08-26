@@ -109,14 +109,13 @@ public class handlerSocketTest {
 		String[] test_valueDelete = {"john_doe"};//value to delete from mysql
 		
 		assertTrue(hsclient.openIndex(indexId, db, table, "PRIMARY", columns));
-		//hsclient.openIndexSession(indexId, db, table, "Primary", columns);
- 		
+		
  		//CRUD operations:	
  		//insert
 		hs.insertData(hsclient, indexId, test_valueInsert);		
 		//check if value exists in mysql database(read)
-		ResultSet rs = hsclient.find(indexId, find_values);
-		
+		//ResultSet rs = hsclient.find(indexId, find_values);	
+		ResultSet rs = hsclient.find(indexId, find_values, FindOperator.EQ, 1, 0);
 		assertTrue(rs.next());
 		assertEquals("equal", "john_doe", rs.getString("user_name"));
 		assertEquals("equal", "john_doe@test.com", rs.getString("user_email"));
