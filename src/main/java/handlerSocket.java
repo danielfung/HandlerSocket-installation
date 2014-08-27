@@ -10,7 +10,6 @@ import java.util.concurrent.TimeoutException;
 
 import com.google.code.hs4j.FindOperator;
 import com.google.code.hs4j.HSClient;
-import com.google.code.hs4j.IndexSession;
 import com.google.code.hs4j.exception.HandlerSocketException;
 
 public class handlerSocket {

@@ -8,7 +8,6 @@ import java.util.concurrent.TimeoutException;
 import com.google.code.hs4j.HSClient;
 import com.google.code.hs4j.exception.HandlerSocketException;
 import com.google.code.hs4j.impl.HSClientImpl;
-import com.google.code.hs4j.IndexSession;
 
 public class handlerSocketMain {
 
@@ -22,13 +21,14 @@ public class handlerSocketMain {
 		int indexId = 1;
 		
 		hsclient.openIndex(indexId, db, table, "Primary", columns);
-
+		
 		
 		String[] test_values = {"john_doe", "john_doe@test.com", "1234567", "created"};
-		String[] test_valueFind = {"john_doe"};
+		String[] test_valueFind = {"1234567"};
 		hs.insertData(hsclient, indexId, test_values);//insert into db-test, test_user-test_user;
 		hs.findData(hsclient, indexId, columns, test_valueFind);
 		
+		System.out.println(hs.findKey("1234567"));
 		
 		hsclient.shutdown();
 	}

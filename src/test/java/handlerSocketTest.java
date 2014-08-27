@@ -59,7 +59,7 @@ public class handlerSocketTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testIllegalArguments2() throws IOException, InterruptedException, TimeoutException, HandlerSocketException{
-		String[] columns= {"user_name", "user_email", "user_id", "created"};
+		//String[] columns= {"user_name", "user_email", "user_id", "created"};
 		HSClient hsclient = new HSClientImpl(new InetSocketAddress(9999),100);
 		hsclient.openIndexSession("test", "test", "Primary", null);	
 	}
