@@ -22,7 +22,6 @@ public class handlerSocketMain {
 		
 		hsclient.openIndex(indexId, db, table, "Primary", columns);
 		
-		
 		String[] test_values = {"john_doe", "john_doe@test.com", "1234567", "created"};
 		String[] test_valueFind = {"1234567"};
 		hs.insertData(hsclient, indexId, test_values);//insert into db-test, test_user-test_user;
