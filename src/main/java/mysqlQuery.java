@@ -10,8 +10,7 @@ public class mysqlQuery {
 	protected static String hostName;
 	protected static String userName;
 	protected static String password;
-	protected static String databaseName;
-	
+	protected static String databaseName;	
 	/*
 	 * Take a query string and execute it if the database the user wants to create a table in exists.
 	 * 
@@ -105,6 +104,13 @@ public class mysqlQuery {
 		String query = args[4];//the query string you want to execute.
 		
 		boolean dbExist = queryCheckDatabase(hostName, databaseName);
+		
+		//example query string:
+		//CREATE TABLE user (user_id INT UNSIGNED PRIMARY KEY, 
+		//					 user_name VARCHAR(50), 
+		//                   user_email VARCHAR(255), 
+		//                   created DATETIME) ENGINE=InnoDB;
+		
 		createTable(query, dbExist);
 	}
 }
