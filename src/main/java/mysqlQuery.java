@@ -11,11 +11,12 @@ public class mysqlQuery {
 	protected static String userName;
 	protected static String password;
 	protected static String databaseName;	
+	
 	/*
 	 * Take a query string and execute it if the database the user wants to create a table in exists.
 	 * 
-	 * @params query the query string to pass to mysql.
-	 * @params databaseExist boolean value to see if database exists.
+	 * @param query the query string to pass to mysql.
+	 * @param databaseExist boolean value to see if database exists.
 	 * @throws SQLException
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
@@ -38,7 +39,7 @@ public class mysqlQuery {
 	/*
 	 * Delete all data in a table(tableName).
 	 * 
-	 * @params tableName the name of a table in mysql.
+	 * @param tableName the name of a table in mysql.
 	 * @throws Exception
 	 * @throws SQLException
 	 */
@@ -54,8 +55,8 @@ public class mysqlQuery {
 	/*
 	 * Perform a query to check if database exists in mysql.
 	 * 
-	 * @params hostName the mysql hostname.
-	 * @params dbName the database you want to use in mysql.
+	 * @param hostName the mysql hostname.
+	 * @param dbName the database you want to use in mysql.
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 * @throws ClassNotFoundException
@@ -81,9 +82,9 @@ public class mysqlQuery {
 	/*
 	 * Establish a connection with mysql using hostName, user, password.
 	 * 
-	 * @params url the hostName\databaseName.
-	 * @params user your username to log into mysql.
-	 * @params password your password assoicate with your username.
+	 * @param url the hostName\databaseName.
+	 * @param user your username to log into mysql.
+	 * @param password your password assoicate with your username.
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 * @throws ClassNotFoundException
